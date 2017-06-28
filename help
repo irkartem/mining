@@ -1,0 +1,4 @@
+./ohgodatool -i 0 --mem-state 2 --mem-clock 2150
+./ohgodatool -i 0 --core-state 7 --core-clock 1200
+./ohgodatool -i 0 --set-tdc 137
+./ohgodatool -i 0 --set-max-power 155
