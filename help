@@ -2,3 +2,7 @@
 ./ohgodatool -i 0 --core-state 7 --core-clock 1200
 ./ohgodatool -i 0 --set-tdc 137
 ./ohgodatool -i 0 --set-max-power 155
+
+
+
+ for i in `seq 0 5 `; do /root/ohgodatool -i $i --set-fanspeed 100; done 
