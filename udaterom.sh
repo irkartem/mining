@@ -1,12 +1,16 @@
-wget -q -O - yanairk.ru/dl/start > startmining.sh                                                                                                                                                              
-wget -q -O - yanairk.ru/dl/send.sh > send.sh                                                                                                                                                                   
+wget -q -O - yanairk.ru/dl/send.sh > send.sh
+wget -q -O - yanairk.ru/dl/startown > startmining.sh
+wget -q -O - yanairk.ru/dl/get > /root/get.py
+chmod +x /root/get.py
 chmod +x /root/send.sh
-apt install curl                                                                                                                                                                                               
-chmod +x send.sh                                                                                                                                                                                               
+apt -y install curl                                                                                                                                                                                               
+apt -y install python3-influxdb
 ./send.sh                                                                                                                                                                                                      
 chmod +x startmining.sh                                                                                                                                                                                        
+./get.py
 echo "@reboot  /root/startmining.sh" >/tmp/cron                                                                                                                                                                
 echo "* * * * * /root/send.sh" >> /tmp/cron                                                                                                                                                                    
+echo "* * * * * /root/get.py" >> /tmp/cron                                                                                                                                                                    
 crontab /tmp/cron                                 
 hostname > /etc/hostname
 wget yanairk.ru/dl/rx580_4g_mod.rom -O /root/rx580_4g_mod.rom

